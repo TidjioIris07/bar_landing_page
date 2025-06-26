@@ -11,6 +11,7 @@ import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const arrowRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useGSAP(() => {
@@ -65,6 +66,46 @@ const Hero = () => {
         currentTime: videoRef.current.duration,
       });
     }
+
+    if (arrowRef.current) {
+      // Initial fade in animation with delay
+      gsap.fromTo(
+        arrowRef.current,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 2.1,
+          ease: "expo.out",
+        }
+      );
+
+      // Continuous bouncing animation
+      gsap.to(arrowRef.current, {
+        y: 20,
+        duration: 1.2,
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: 3.5,
+      });
+
+      // // Fade out on scroll
+      // gsap.to(arrowRef.current, {
+      //   opacity: 0,
+      //   duration: 0.5,
+      //   scrollTrigger: {
+      //     trigger: "#hero",
+      //     start: "bottom 80%",
+      //     end: "bottom 60%",
+      //     scrub: true,
+      //   },
+      // });
+    }
   }, []);
 
   return (
@@ -105,6 +146,15 @@ const Hero = () => {
               <Link href="#cocktails">View Cocktails</Link>
             </div>
           </div>
+        </div>
+
+        <div ref={arrowRef} className="arrow-scroll">
+          <Image
+            src="/images/arrow.png"
+            alt="scroll indicator"
+            width={24}
+            height={152}
+          />
         </div>
       </section>
       <div className="video absolute inset-0">
