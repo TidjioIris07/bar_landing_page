@@ -83,8 +83,8 @@ const About = () => {
           <div className="noisy" />
           <Image
             src="/images/abt2.png"
-            alt="grid-img-1"
-            width={330}
+            alt="grid-img-2"
+            width={580}
             height={285}
           />
         </div>
@@ -94,8 +94,8 @@ const About = () => {
           <Image
             src="/images/abt5.png"
             alt="grid-img-1"
-            width={330}
-            height={285}
+            width={860}
+            height={860}
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ const About = () => {
           <Image
             src="/images/abt3.png"
             alt="grid-img-1"
-            width={330}
+            width={780}
             height={285}
           />
         </div>
@@ -115,7 +115,7 @@ const About = () => {
           <Image
             src="/images/abt4.png"
             alt="grid-img-1"
-            width={330}
+            width={480}
             height={285}
           />
         </div>
