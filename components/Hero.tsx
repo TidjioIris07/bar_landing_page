@@ -10,7 +10,7 @@ import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useGSAP(() => {
@@ -60,11 +60,11 @@ const Hero = () => {
       },
     });
 
-    videoRef.current.onloadedmetadata = () => {
+    if (videoRef.current) {
       tl.to(videoRef.current, {
         currentTime: videoRef.current.duration,
       });
-    };
+    }
   }, []);
 
   return (
