@@ -26,6 +26,14 @@ const Menu = () => {
       { yPercent: 100, opacity: 0 },
       { yPercent: 0, opacity: 100, ease: "power1.inOut" }
     );
+    // gsap.from("#m-left-leaf", {
+    //   x: -100,
+    //   y: 100,
+    // });
+    // gsap.from("#m-right-leaf", {
+    //   x: 100,
+    //   y: 100,
+    // });
   }, [currentIndex]);
 
   const totalCocktails = sliderLists.length;
